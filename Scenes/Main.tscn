@@ -1,0 +1,506 @@
+[gd_scene format=3 uid="uid://jjupx85fasgb"]
+
+[ext_resource type="Texture2D" uid="uid://b8m30wrqc0kb0" path="res://Sprites/CafePlategrond.png" id="1_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://d2sqlg6xhkp07" path="res://Scenes/Player.tscn" id="2_idj7w"]
+[ext_resource type="Texture2D" uid="uid://dt7hfcgee4o61" path="res://Sprites/Balkon.png" id="2_v1gob"]
+[ext_resource type="Script" uid="uid://y6n0x4osnryt" path="res://Scripts/customer_spawner.gd" id="3_kln2b"]
+[ext_resource type="PackedScene" uid="uid://co4nrusn8cp7u" path="res://Scenes/Customer.tscn" id="4_rgh2o"]
+[ext_resource type="Script" uid="uid://ghnp4xuaccrv" path="res://Scripts/order_panel.gd" id="5_pbw6q"]
+[ext_resource type="Script" uid="uid://cseuut31tfe3h" path="res://Scripts/shop_panel.gd" id="7_jw32o"]
+[ext_resource type="Script" uid="uid://bidghl3m0vx1c" path="res://Scripts/story_dialog_panel.gd" id="8_50glp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1gob"]
+texture = ExtResource("1_pbw6q")
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+23:3/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+23:4/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+23:5/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+20:6/0 = 0
+21:6/0 = 0
+22:6/0 = 0
+23:6/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+21:7/0 = 0
+22:7/0 = 0
+23:7/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+21:8/0 = 0
+22:8/0 = 0
+23:8/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+21:9/0 = 0
+22:9/0 = 0
+23:9/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+20:10/0 = 0
+21:10/0 = 0
+22:10/0 = 0
+23:10/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+18:11/0 = 0
+19:11/0 = 0
+20:11/0 = 0
+21:11/0 = 0
+22:11/0 = 0
+23:11/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+20:12/0 = 0
+21:12/0 = 0
+22:12/0 = 0
+23:12/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+17:13/0 = 0
+18:13/0 = 0
+19:13/0 = 0
+20:13/0 = 0
+21:13/0 = 0
+22:13/0 = 0
+23:13/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+18:14/0 = 0
+19:14/0 = 0
+20:14/0 = 0
+21:14/0 = 0
+22:14/0 = 0
+23:14/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+18:15/0 = 0
+19:15/0 = 0
+20:15/0 = 0
+21:15/0 = 0
+22:15/0 = 0
+23:15/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
+17:16/0 = 0
+18:16/0 = 0
+19:16/0 = 0
+20:16/0 = 0
+21:16/0 = 0
+22:16/0 = 0
+23:16/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+16:17/0 = 0
+17:17/0 = 0
+18:17/0 = 0
+19:17/0 = 0
+20:17/0 = 0
+21:17/0 = 0
+22:17/0 = 0
+23:17/0 = 0
+4:18/0 = 0
+5:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+8:18/0 = 0
+9:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+12:18/0 = 0
+13:18/0 = 0
+14:18/0 = 0
+15:18/0 = 0
+16:18/0 = 0
+17:18/0 = 0
+18:18/0 = 0
+19:18/0 = 0
+20:18/0 = 0
+21:18/0 = 0
+22:18/0 = 0
+23:18/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_idj7w"]
+tile_size = Vector2i(1, 1)
+sources/0 = SubResource("TileSetAtlasSource_v1gob")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw32o"]
+size = Vector2(68.79997, 67.20001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50glp"]
+size = Vector2(108.39998, 19.19999)
+
+[node name="Main" type="Node2D" unique_id=1787955461]
+position = Vector2(437, 260)
+scale = Vector2(0.5, 0.5)
+
+[node name="CafeTileMap" type="TileMap" parent="." unique_id=1949988611]
+position = Vector2(-1360, -620)
+tile_set = SubResource("TileSet_idj7w")
+format = 2
+
+[node name="CafePlategrond" type="Sprite2D" parent="CafeTileMap" unique_id=518391711]
+position = Vector2(1773.9998, 658)
+scale = Vector2(5, 5)
+texture = ExtResource("1_pbw6q")
+
+[node name="Player" parent="." unique_id=1370247376 instance=ExtResource("2_idj7w")]
+position = Vector2(484, 176)
+scale = Vector2(6, 6)
+
+[node name="Balkon" type="Sprite2D" parent="." unique_id=957321513]
+position = Vector2(412, 40.00006)
+scale = Vector2(5, 5)
+texture = ExtResource("2_v1gob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Balkon" unique_id=2132144469]
+position = Vector2(-103.60001, 65.59999)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_jw32o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Balkon" unique_id=647953526]
+position = Vector2(-16.399994, 89.99996)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_50glp")
+
+[node name="EntrancePoint" type="Marker2D" parent="." unique_id=754272863]
+position = Vector2(714, 440)
+
+[node name="OrderSpot" type="Marker2D" parent="." unique_id=1213136590]
+position = Vector2(262, 180)
+
+[node name="CustomerSpawner" type="Node2D" parent="." unique_id=722602631]
+position = Vector2(732, 196)
+script = ExtResource("3_kln2b")
+customer_scene = ExtResource("4_rgh2o")
+entrance_point = NodePath("../EntrancePoint")
+order_spot = NodePath("../OrderSpot")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=994477211]
+
+[node name="OrderPanel" type="Panel" parent="CanvasLayer" unique_id=1678905701]
+anchors_preset = -1
+anchor_left = 0.388
+anchor_top = 0.537
+anchor_right = 0.523
+anchor_bottom = 0.71400005
+offset_left = 8.023987
+offset_top = -74.97601
+offset_right = -101.49597
+offset_bottom = -145.17203
+scale = Vector2(2, 2)
+script = ExtResource("5_pbw6q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OrderPanel" unique_id=2130314748]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.34800002
+anchor_bottom = 0.84300005
+offset_left = -179.992
+offset_top = -107.5
+offset_right = -141.0
+offset_bottom = -15.013504
+
+[node name="TeaOption" type="OptionButton" parent="CanvasLayer/OrderPanel/VBoxContainer" unique_id=1674875223]
+layout_mode = 2
+
+[node name="BobaOption" type="OptionButton" parent="CanvasLayer/OrderPanel/VBoxContainer" unique_id=1077618328]
+layout_mode = 2
+
+[node name="ToppingOption" type="OptionButton" parent="CanvasLayer/OrderPanel/VBoxContainer" unique_id=1528270109]
+layout_mode = 2
+
+[node name="ServeButton" type="Button" parent="CanvasLayer/OrderPanel/VBoxContainer" unique_id=514596434]
+layout_mode = 2
+text = "Serve"
+
+[node name="CurrentOrderLabel" type="Label" parent="CanvasLayer/OrderPanel/VBoxContainer" unique_id=1381461353]
+modulate = Color(0, 0, 0, 1)
+light_mask = 139
+visibility_layer = 7
+layout_mode = 2
+text = "Order: "
+
+[node name="CoinLabel" type="Label" parent="CanvasLayer" unique_id=1324084129]
+offset_left = 254.0
+offset_top = 53.0
+offset_right = 304.0
+offset_bottom = 76.0
+text = "\"🪙 0\""
+
+[node name="ShopPanel" type="Panel" parent="CanvasLayer" unique_id=30874791]
+visible = false
+offset_left = 437.0
+offset_top = 260.0
+offset_right = 477.0
+offset_bottom = 300.0
+script = ExtResource("7_jw32o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ShopPanel" unique_id=991987808]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UnlockGreenTea" type="Button" parent="CanvasLayer/ShopPanel/VBoxContainer" unique_id=1599564445]
+layout_mode = 2
+text = "\"Unlock Green Tea (🪙 20)\""
+
+[node name="SpeedUpgradeButton" type="Button" parent="CanvasLayer/ShopPanel/VBoxContainer" unique_id=748638768]
+layout_mode = 2
+text = "\"Faster Service (🪙 30)\""
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/ShopPanel/VBoxContainer" unique_id=1960744829]
+layout_mode = 2
+text = "\"Close\""
+
+[node name="StoryDialogPanel" type="Panel" parent="CanvasLayer" unique_id=1783204358]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_50glp")
+
+[node name="DialogPanel" type="Panel" parent="CanvasLayer/StoryDialogPanel" unique_id=2049935569]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/StoryDialogPanel/DialogPanel" unique_id=2134389521]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="EndScreen" type="CanvasLayer" parent="CanvasLayer" unique_id=1053538259]
+
+[node name="Panel" type="Panel" parent="CanvasLayer/EndScreen" unique_id=939447427]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EndScreen/Panel" unique_id=1069023929]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=1132064396]
+layout_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=670716323]
+layout_mode = 2
+
+[node name="PlayAgainButton" type="Button" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=1108828138]
+layout_mode = 2
+
+[connection signal="pressed" from="CanvasLayer/OrderPanel/VBoxContainer/ServeButton" to="CanvasLayer/OrderPanel" method="_on_serve_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/UnlockGreenTea" to="CanvasLayer/ShopPanel" method="_on_unlock_green_tea_pressed"]
+[connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/SpeedUpgradeButton" to="CanvasLayer/ShopPanel" method="_on_speed_upgrade_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/CloseButton" to="CanvasLayer/ShopPanel" method="_on_close_button_pressed"]
