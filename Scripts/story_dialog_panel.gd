@@ -7,6 +7,7 @@ extends Node
 func _ready():
 	panel.hide()
 
+#hello world
 func show_text(text: String):
 	label.text = text
 	panel.show()
