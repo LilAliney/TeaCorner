@@ -30,25 +30,23 @@ func _physics_process(_delta):
 
 	# Normaliseer zodat diagonale beweging niet sneller is
 	direction = direction.normalized()
-
 	# Pas snelheid toe
 	velocity = direction * speed
-
 	# Beweeg de speler
 	move_and_slide()
-
-
-# INTERACTIE MET KLANTEN
-
-func _unhandled_input(event):
-	# Als de speler op de interactieknop drukt
-	if event.is_action_pressed("interact"):
-		# Zoek een klant in de groep "customer"
-		var customer = get_tree().get_first_node_in_group("customer")
-		if customer == null:
-			return
-
-		# Open het OrderPanel en toon de bestelling
-		var panel = get_node("/root/Main/CanvasLayer/OrderPanel")
-		panel.show_order(customer.order)
-		panel.visible = true
+#
+#
+## INTERACTIE MET KLANTEN
+#
+#func _unhandled_input(event):
+	## Als de speler op de interactieknop drukt
+	#if event.is_action_pressed("interact"):
+		## Zoek een klant in de groep "customer"
+		#var customer = get_tree().get_first_node_in_group("customer")
+		#if customer == null:
+			#return
+#
+		## Open het OrderPanel en toon de bestelling
+		#var panel = get_node("/root/Main/CanvasLayer/OrderPanel")
+		#panel.show_order(customer.order)
+		#panel.visible = true

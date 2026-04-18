@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="GIP_TeaCorner_Fase3"
-run/main_scene="uid://jjupx85fasgb"
+run/main_scene="uid://d0cdu1oriwhju"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://co4nrusn8cp7u" path="res://Scenes/Customer.tscn" id="4_rgh2o"]
 [ext_resource type="Script" uid="uid://ghnp4xuaccrv" path="res://Scripts/order_panel.gd" id="5_pbw6q"]
 [ext_resource type="Script" uid="uid://cseuut31tfe3h" path="res://Scripts/shop_panel.gd" id="7_jw32o"]
+[ext_resource type="Script" uid="uid://dj5ew2va5idku" path="res://Scripts/coin_label.gd" id="7_vy5pj"]
 [ext_resource type="Script" uid="uid://bidghl3m0vx1c" path="res://Scripts/story_dialog_panel.gd" id="8_50glp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1gob"]
@@ -366,7 +367,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_v1gob")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Balkon" unique_id=2132144469]
-position = Vector2(-103.60001, 65.59999)
+position = Vector2(-103.60001, 64.79999)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_jw32o")
 
@@ -396,42 +397,69 @@ anchor_left = 0.388
 anchor_top = 0.537
 anchor_right = 0.523
 anchor_bottom = 0.71400005
-offset_left = 8.023987
-offset_top = -74.97601
-offset_right = -101.49597
-offset_bottom = -145.17203
+offset_left = -446.976
+offset_top = -324.976
+offset_right = -430.49597
+offset_bottom = -348.17203
 scale = Vector2(2, 2)
 script = ExtResource("5_pbw6q")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OrderPanel" unique_id=2130314748]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.34800002
-anchor_bottom = 0.84300005
-offset_left = -179.992
-offset_top = -107.5
-offset_right = -141.0
-offset_bottom = -15.013504
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/OrderPanel" unique_id=1881379875]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="TeaOption" type="OptionButton" parent="CanvasLayer/OrderPanel/VBoxContainer" unique_id=1674875223]
+[node name="CupPanel" type="Panel" parent="CanvasLayer/OrderPanel/HBoxContainer" unique_id=1908651026]
 layout_mode = 2
 
-[node name="BobaOption" type="OptionButton" parent="CanvasLayer/OrderPanel/VBoxContainer" unique_id=1077618328]
-layout_mode = 2
+[node name="CupLabel" type="Label" parent="CanvasLayer/OrderPanel/HBoxContainer/CupPanel" unique_id=941376902]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
-[node name="ToppingOption" type="OptionButton" parent="CanvasLayer/OrderPanel/VBoxContainer" unique_id=1528270109]
-layout_mode = 2
+[node name="OrderLabel" type="Label" parent="CanvasLayer/OrderPanel/HBoxContainer/CupPanel" unique_id=937208129]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
-[node name="ServeButton" type="Button" parent="CanvasLayer/OrderPanel/VBoxContainer" unique_id=514596434]
-layout_mode = 2
+[node name="ServerButton" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/CupPanel" unique_id=1204096098]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
 text = "Serve"
 
-[node name="CurrentOrderLabel" type="Label" parent="CanvasLayer/OrderPanel/VBoxContainer" unique_id=1381461353]
-modulate = Color(0, 0, 0, 1)
-light_mask = 139
-visibility_layer = 7
+[node name="IngredientPanel" type="Panel" parent="CanvasLayer/OrderPanel/HBoxContainer" unique_id=734919581]
 layout_mode = 2
-text = "Order: "
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel" unique_id=81578045]
+layout_mode = 0
+offset_top = 107.5
+offset_right = 164.0
+offset_bottom = 313.5
+
+[node name="MilkTea" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=1406573080]
+layout_mode = 2
+text = "🍵 Milk Tea"
+
+[node name="GreenTea" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=1131934596]
+layout_mode = 2
+text = "🍃 Green Tea"
+
+[node name="ClassicButton" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=1881337375]
+layout_mode = 2
+text = "⚫ Classic Boba"
+
+[node name="StarwberryBobaButton" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=1753704514]
+layout_mode = 2
+text = "🔴 Strawberry Boba"
+
+[node name="NoneButton" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=1540895988]
+layout_mode = 2
+text = "✨ No Topping"
+
+[node name="MochiButton" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=246014712]
+layout_mode = 2
+text = "🌸 Mochi"
 
 [node name="CoinLabel" type="Label" parent="CanvasLayer" unique_id=1324084129]
 offset_left = 254.0
@@ -439,6 +467,7 @@ offset_top = 53.0
 offset_right = 304.0
 offset_bottom = 76.0
 text = "\"🪙 0\""
+script = ExtResource("7_vy5pj")
 
 [node name="ShopPanel" type="Panel" parent="CanvasLayer" unique_id=30874791]
 visible = false
@@ -500,7 +529,13 @@ layout_mode = 2
 [node name="PlayAgainButton" type="Button" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=1108828138]
 layout_mode = 2
 
-[connection signal="pressed" from="CanvasLayer/OrderPanel/VBoxContainer/ServeButton" to="CanvasLayer/OrderPanel" method="_on_serve_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/CupPanel/ServerButton" to="CanvasLayer/OrderPanel" method="_on_serve_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/MilkTea" to="CanvasLayer/OrderPanel" method="_on_milk_tea_pressed"]
+[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/GreenTea" to="CanvasLayer/OrderPanel" method="_on_green_tea_pressed"]
+[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/ClassicButton" to="CanvasLayer/OrderPanel" method="_on_classic_pressed"]
+[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/StarwberryBobaButton" to="CanvasLayer/OrderPanel" method="_on_strawberry_pressed"]
+[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/NoneButton" to="CanvasLayer/OrderPanel" method="_on_none_pressed"]
+[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/MochiButton" to="CanvasLayer/OrderPanel" method="_on_mochi_pressed"]
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/UnlockGreenTea" to="CanvasLayer/ShopPanel" method="_on_unlock_green_tea_pressed"]
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/SpeedUpgradeButton" to="CanvasLayer/ShopPanel" method="_on_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/CloseButton" to="CanvasLayer/ShopPanel" method="_on_close_button_pressed"]
