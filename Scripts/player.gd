@@ -1,52 +1,55 @@
 extends CharacterBody2D
-# Dit script bestuurt de speler:
-# - Bewegen met de pijltjestoetsen / WASD
-# - Interageren met klanten om een bestelling te openen
-
-
-# INSTELBARE WAARDES
 
 @export var speed := 120.0
-# Snelheid van de speler
 
+func _ready():
+	add_to_group("player")
+	print("Player collision layer: ", collision_layer)
+	print("Player collision mask: ", collision_mask)
 
-# BEWEGING
 
 func _physics_process(_delta):
-	# Richting waarin de speler beweegt
 	var direction := Vector2.ZERO
-
-	# Horizontale beweging
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	if Input.is_action_pressed("move_left"):
 		direction.x -= 1
-
-	# Verticale beweging
 	if Input.is_action_pressed("move_down"):
 		direction.y += 1
 	if Input.is_action_pressed("move_up"):
 		direction.y -= 1
-
-	# Normaliseer zodat diagonale beweging niet sneller is
 	direction = direction.normalized()
-	# Pas snelheid toe
 	velocity = direction * speed
-	# Beweeg de speler
 	move_and_slide()
-#
-#
-## INTERACTIE MET KLANTEN
-#
-#func _unhandled_input(event):
-	## Als de speler op de interactieknop drukt
-	#if event.is_action_pressed("interact"):
-		## Zoek een klant in de groep "customer"
-		#var customer = get_tree().get_first_node_in_group("customer")
-		#if customer == null:
-			#return
-#
-		## Open het OrderPanel en toon de bestelling
-		#var panel = get_node("/root/Main/CanvasLayer/OrderPanel")
-		#panel.show_order(customer.order)
-		#panel.visible = true
+
+func _unhandled_input(event):
+	if not (event is InputEventMouseButton and event.pressed):
+		return
+	# Kijk of de speler op een klant klikt om te serveren
+	var customer = get_tree().get_first_node_in_group("customer")
+	if customer == null:
+		return
+	# Check afstand tot klant
+	if global_position.distance_to(customer.global_position) > 80:
+		return
+	# Check of de drank compleet is
+	if not CurrentDrink.is_complete():
+		print("Drank nog niet klaar!")
+		return
+	# Controleer of de drank correct is
+	var correct = (
+		CurrentDrink.tea == customer.order.tea_type and
+		CurrentDrink.boba == customer.order.boba and
+		CurrentDrink.topping == customer.order.topping
+	)
+	if correct:
+		Economy.add_coins(5)
+		StoryManager.customer_served()
+		customer.queue_free()
+		CurrentDrink.reset()
+		get_tree().get_first_node_in_group("drink_hud").update_hud()
+	else:
+		# Verkeerde drank — reset en probeer opnieuw
+		print("Verkeerde drank!")
+		CurrentDrink.reset()
+		get_tree().get_first_node_in_group("drink_hud").update_hud()

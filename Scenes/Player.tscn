@@ -1,26 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2sqlg6xhkp07"]
+[gd_scene format=3 uid="uid://d2sqlg6xhkp07"]
 
 [ext_resource type="Script" uid="uid://c0lslv6ljgx2r" path="res://Scripts/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://l8al2g8oc8a2" path="res://Sprites/PlayerTest.png" id="1_rpqav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
-size = Vector2(14, 39)
+size = Vector2(14, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gntrk"]
-size = Vector2(16, 55)
+size = Vector2(16, 19)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=264358860]
 script = ExtResource("1_kyqiw")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1206686337]
+position = Vector2(-1, 2)
 texture = ExtResource("1_rpqav")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 25)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1938733522]
+position = Vector2(-3, 29.5)
 shape = SubResource("RectangleShape2D_kyqiw")
 
-[node name="InteractArea" type="Area2D" parent="."]
+[node name="InteractArea" type="Area2D" parent="." unique_id=1753898155]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
-position = Vector2(-3, 17)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=388545212]
+position = Vector2(-3, 29.5)
 shape = SubResource("RectangleShape2D_gntrk")

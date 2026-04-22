@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 Economy="*res://Scripts/economy_manager.gd"
 StoryManager="*uid://dm7cnnexpylp6"
+CurrentDrink="*uid://dnrhr16re3ujd"
 
 [input]
 

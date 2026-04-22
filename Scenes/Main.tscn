@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://dt7hfcgee4o61" path="res://Sprites/Balkon.png" id="2_v1gob"]
 [ext_resource type="Script" uid="uid://y6n0x4osnryt" path="res://Scripts/customer_spawner.gd" id="3_kln2b"]
 [ext_resource type="PackedScene" uid="uid://co4nrusn8cp7u" path="res://Scenes/Customer.tscn" id="4_rgh2o"]
-[ext_resource type="Script" uid="uid://ghnp4xuaccrv" path="res://Scripts/order_panel.gd" id="5_pbw6q"]
 [ext_resource type="Script" uid="uid://cseuut31tfe3h" path="res://Scripts/shop_panel.gd" id="7_jw32o"]
 [ext_resource type="Script" uid="uid://dj5ew2va5idku" path="res://Scripts/coin_label.gd" id="7_vy5pj"]
 [ext_resource type="Script" uid="uid://bidghl3m0vx1c" path="res://Scripts/story_dialog_panel.gd" id="8_50glp"]
+[ext_resource type="Script" uid="uid://c4yh5cfqcn18o" path="res://Scripts/station.gd" id="10_bmxlf"]
+[ext_resource type="Script" uid="uid://bigdrj8u1evxv" path="res://Scripts/drink_hud.gd" id="11_4kpch"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1gob"]
 texture = ExtResource("1_pbw6q")
@@ -337,11 +338,25 @@ texture = ExtResource("1_pbw6q")
 tile_size = Vector2i(1, 1)
 sources/0 = SubResource("TileSetAtlasSource_v1gob")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw32o"]
-size = Vector2(68.79997, 67.20001)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_50glp"]
 size = Vector2(108.39998, 19.19999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw32o"]
+size = Vector2(68.79997, 17.200012)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bmxlf"]
+a = Vector2(-129.19998, -5.200012)
+b = Vector2(131.19998, -4.400017)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4kpch"]
+a = Vector2(104.79999, 5.9999847)
+b = Vector2(104, 73.59998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kpch"]
+size = Vector2(73.5, 67.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmxlf"]
+size = Vector2(65, 41.5)
 
 [node name="Main" type="Node2D" unique_id=1787955461]
 position = Vector2(437, 260)
@@ -353,7 +368,7 @@ tile_set = SubResource("TileSet_idj7w")
 format = 2
 
 [node name="CafePlategrond" type="Sprite2D" parent="CafeTileMap" unique_id=518391711]
-position = Vector2(1773.9998, 658)
+position = Vector2(1738, 660)
 scale = Vector2(5, 5)
 texture = ExtResource("1_pbw6q")
 
@@ -366,15 +381,33 @@ position = Vector2(412, 40.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("2_v1gob")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Balkon" unique_id=2132144469]
-position = Vector2(-103.60001, 64.79999)
-scale = Vector2(0.9999998, 0.9999998)
+[node name="StaticBody2D" type="StaticBody2D" parent="Balkon" unique_id=211831873]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Balkon/StaticBody2D" unique_id=647953526]
+position = Vector2(-16.399994, 89.99996)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_50glp")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Balkon" unique_id=1932486553]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Balkon/StaticBody2D2" unique_id=2132144469]
+position = Vector2(-103.59996, 89.79998)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_jw32o")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Balkon" unique_id=647953526]
-position = Vector2(-16.399994, 89.99996)
-scale = Vector2(0.9999998, 0.9999998)
-shape = SubResource("RectangleShape2D_50glp")
+[node name="StaticBody2D3" type="StaticBody2D" parent="Balkon" unique_id=1165441426]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Balkon/StaticBody2D3" unique_id=1357452757]
+position = Vector2(-6.7999997, 7.999987)
+shape = SubResource("SegmentShape2D_bmxlf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Balkon/StaticBody2D3" unique_id=302187065]
+shape = SubResource("SegmentShape2D_4kpch")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Balkon/StaticBody2D3" unique_id=1854020283]
+position = Vector2(-238.79999, 7.9999847)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("SegmentShape2D_4kpch")
 
 [node name="EntrancePoint" type="Marker2D" parent="." unique_id=754272863]
 position = Vector2(714, 440)
@@ -390,76 +423,6 @@ entrance_point = NodePath("../EntrancePoint")
 order_spot = NodePath("../OrderSpot")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=994477211]
-
-[node name="OrderPanel" type="Panel" parent="CanvasLayer" unique_id=1678905701]
-anchors_preset = -1
-anchor_left = 0.388
-anchor_top = 0.537
-anchor_right = 0.523
-anchor_bottom = 0.71400005
-offset_left = -446.976
-offset_top = -324.976
-offset_right = -430.49597
-offset_bottom = -348.17203
-scale = Vector2(2, 2)
-script = ExtResource("5_pbw6q")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/OrderPanel" unique_id=1881379875]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CupPanel" type="Panel" parent="CanvasLayer/OrderPanel/HBoxContainer" unique_id=1908651026]
-layout_mode = 2
-
-[node name="CupLabel" type="Label" parent="CanvasLayer/OrderPanel/HBoxContainer/CupPanel" unique_id=941376902]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="OrderLabel" type="Label" parent="CanvasLayer/OrderPanel/HBoxContainer/CupPanel" unique_id=937208129]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="ServerButton" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/CupPanel" unique_id=1204096098]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Serve"
-
-[node name="IngredientPanel" type="Panel" parent="CanvasLayer/OrderPanel/HBoxContainer" unique_id=734919581]
-layout_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel" unique_id=81578045]
-layout_mode = 0
-offset_top = 107.5
-offset_right = 164.0
-offset_bottom = 313.5
-
-[node name="MilkTea" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=1406573080]
-layout_mode = 2
-text = "🍵 Milk Tea"
-
-[node name="GreenTea" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=1131934596]
-layout_mode = 2
-text = "🍃 Green Tea"
-
-[node name="ClassicButton" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=1881337375]
-layout_mode = 2
-text = "⚫ Classic Boba"
-
-[node name="StarwberryBobaButton" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=1753704514]
-layout_mode = 2
-text = "🔴 Strawberry Boba"
-
-[node name="NoneButton" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=1540895988]
-layout_mode = 2
-text = "✨ No Topping"
-
-[node name="MochiButton" type="Button" parent="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer" unique_id=246014712]
-layout_mode = 2
-text = "🌸 Mochi"
 
 [node name="CoinLabel" type="Label" parent="CanvasLayer" unique_id=1324084129]
 offset_left = 254.0
@@ -495,30 +458,41 @@ layout_mode = 2
 text = "\"Close\""
 
 [node name="StoryDialogPanel" type="Panel" parent="CanvasLayer" unique_id=1783204358]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 235.0
+offset_top = 530.0
+offset_right = 948.0
+offset_bottom = 620.0
 script = ExtResource("8_50glp")
 
 [node name="DialogPanel" type="Panel" parent="CanvasLayer/StoryDialogPanel" unique_id=2049935569]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 29.0
+offset_right = 713.0
+offset_bottom = 85.0
 
 [node name="Label" type="Label" parent="CanvasLayer/StoryDialogPanel/DialogPanel" unique_id=2134389521]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 193.0
+offset_top = 40.0
+offset_right = 233.0
+offset_bottom = 63.0
 
 [node name="EndScreen" type="CanvasLayer" parent="CanvasLayer" unique_id=1053538259]
 
 [node name="Panel" type="Panel" parent="CanvasLayer/EndScreen" unique_id=939447427]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 918.0
+offset_top = 53.0
+offset_right = 958.0
+offset_bottom = 93.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EndScreen/Panel" unique_id=1069023929]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 7.379
+anchor_bottom = 2.6000001
+offset_top = 40.0
+offset_right = -255.16
+offset_bottom = -2.0000076
 
 [node name="TitleLabel" type="Label" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=1132064396]
 layout_mode = 2
@@ -529,13 +503,137 @@ layout_mode = 2
 [node name="PlayAgainButton" type="Button" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=1108828138]
 layout_mode = 2
 
-[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/CupPanel/ServerButton" to="CanvasLayer/OrderPanel" method="_on_serve_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/MilkTea" to="CanvasLayer/OrderPanel" method="_on_milk_tea_pressed"]
-[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/GreenTea" to="CanvasLayer/OrderPanel" method="_on_green_tea_pressed"]
-[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/ClassicButton" to="CanvasLayer/OrderPanel" method="_on_classic_pressed"]
-[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/StarwberryBobaButton" to="CanvasLayer/OrderPanel" method="_on_strawberry_pressed"]
-[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/NoneButton" to="CanvasLayer/OrderPanel" method="_on_none_pressed"]
-[connection signal="pressed" from="CanvasLayer/OrderPanel/HBoxContainer/IngredientPanel/GridContainer/MochiButton" to="CanvasLayer/OrderPanel" method="_on_mochi_pressed"]
+[node name="DrinkStation" type="Area2D" parent="CanvasLayer" unique_id=543831122]
+position = Vector2(-14, 4)
+script = ExtResource("10_bmxlf")
+station_options = Array[String](["Milk Tea", "Green Tea"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrinkStation" unique_id=1260740298]
+position = Vector2(790, 245.25)
+shape = SubResource("RectangleShape2D_4kpch")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/DrinkStation" unique_id=1809985315]
+position = Vector2(790, 256)
+disable_mode = 1
+constant_linear_velocity = Vector2(48, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrinkStation/StaticBody2D" unique_id=1417460311]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_bmxlf")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/DrinkStation" unique_id=1189790535]
+
+[node name="StationPopup" type="Panel" parent="CanvasLayer/DrinkStation" unique_id=792595200]
+offset_left = 386.0
+offset_top = 193.0
+offset_right = 906.0
+offset_bottom = 590.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DrinkStation/StationPopup" unique_id=813169644]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/DrinkStation/StationPopup/VBoxContainer" unique_id=774216387]
+layout_mode = 2
+text = "Drink Station"
+
+[node name="BobaStation" type="Area2D" parent="CanvasLayer" unique_id=786416316]
+position = Vector2(-14, 23)
+script = ExtResource("10_bmxlf")
+station_options = Array[String](["Classic", "Strawberry"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/BobaStation" unique_id=464163749]
+position = Vector2(961.75, 380.875)
+shape = SubResource("RectangleShape2D_4kpch")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/BobaStation" unique_id=970816319]
+position = Vector2(950, 376)
+disable_mode = 1
+constant_linear_velocity = Vector2(48, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/BobaStation/StaticBody2D" unique_id=1137346678]
+position = Vector2(5, -56)
+shape = SubResource("RectangleShape2D_bmxlf")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/BobaStation" unique_id=1509967372]
+
+[node name="StationPopup" type="Panel" parent="CanvasLayer/BobaStation" unique_id=2114434299]
+offset_left = 386.0
+offset_top = 174.0
+offset_right = 906.0
+offset_bottom = 571.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BobaStation/StationPopup" unique_id=1578952376]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/BobaStation/StationPopup/VBoxContainer" unique_id=1495145425]
+layout_mode = 2
+text = "Boba Station"
+
+[node name="ToppingsStation" type="Area2D" parent="CanvasLayer" unique_id=1707775363]
+position = Vector2(217, 361)
+script = ExtResource("10_bmxlf")
+station_options = Array[String](["None", "Mochi"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/ToppingsStation" unique_id=423579134]
+position = Vector2(155, -97.5)
+shape = SubResource("RectangleShape2D_4kpch")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/ToppingsStation" unique_id=1226979268]
+position = Vector2(167, -83)
+disable_mode = 1
+constant_linear_velocity = Vector2(48, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/ToppingsStation/StaticBody2D" unique_id=1962247895]
+position = Vector2(-12, -2.75)
+shape = SubResource("RectangleShape2D_bmxlf")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ToppingsStation" unique_id=699757723]
+
+[node name="StationPopup" type="Panel" parent="CanvasLayer/ToppingsStation" unique_id=943999246]
+offset_left = 155.0
+offset_top = -187.0
+offset_right = 675.0
+offset_bottom = 210.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ToppingsStation/StationPopup" unique_id=809522359]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 2.0
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/ToppingsStation/StationPopup/VBoxContainer" unique_id=246133063]
+layout_mode = 2
+text = "Topping Station"
+
+[node name="DrinkHUD" type="CanvasLayer" parent="CanvasLayer" unique_id=1610677072]
+script = ExtResource("11_4kpch")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/DrinkHUD" unique_id=1639636761]
+offset_left = 247.0
+offset_top = 93.0
+offset_right = 287.0
+offset_bottom = 133.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DrinkHUD/Panel" unique_id=1333429205]
+layout_mode = 0
+offset_left = 116.0
+offset_right = 156.0
+offset_bottom = 77.0
+
+[node name="TeaLabel" type="Label" parent="CanvasLayer/DrinkHUD/Panel/VBoxContainer" unique_id=1437422242]
+layout_mode = 2
+
+[node name="BobaLabel" type="Label" parent="CanvasLayer/DrinkHUD/Panel/VBoxContainer" unique_id=1208508545]
+layout_mode = 2
+
+[node name="ToppingLabel" type="Label" parent="CanvasLayer/DrinkHUD/Panel/VBoxContainer" unique_id=1477474206]
+layout_mode = 2
+
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/UnlockGreenTea" to="CanvasLayer/ShopPanel" method="_on_unlock_green_tea_pressed"]
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/SpeedUpgradeButton" to="CanvasLayer/ShopPanel" method="_on_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/CloseButton" to="CanvasLayer/ShopPanel" method="_on_close_button_pressed"]
