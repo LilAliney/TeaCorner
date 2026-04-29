@@ -20,7 +20,6 @@ func _ready():
 	print("Input pickable: ", input_pickable)
 
 func _on_clicked(_viewport, event, _shape):
-	# Filter: alleen echte muisklikken
 	if not event is InputEventMouseButton:
 		return
 	if not event.button_index == MOUSE_BUTTON_LEFT:
@@ -33,26 +32,38 @@ func _on_clicked(_viewport, event, _shape):
 		return
 	
 	var distance = global_position.distance_to(player.global_position)
-	if distance > 80:
+	if distance > 500:  # ← increase this to 500
 		print("Te ver weg! Afstand: ", distance)
 		return
-	
 	open_popup()
 
 func open_popup():
-	# Vul de popup met de juiste opties
+	print("Opening popup for: ", name)
+	print("Popup node: ", popup)
+	
+	if popup == null:
+		print("ERROR: popup is null!")
+		return
+	
 	var container = popup.get_node("VBoxContainer")
+	if container == null:
+		print("ERROR: VBoxContainer not found!")
+		return
+	
 	# Verwijder oude knoppen
 	for child in container.get_children():
 		if child.name != "TitleLabel":
 			child.queue_free()
+	
 	# Maak nieuwe knoppen
 	for option in station_options:
 		var btn = Button.new()
 		btn.text = option
 		btn.pressed.connect(func(): select_option(option))
 		container.add_child(btn)
+	
 	popup.show()
+	print("Popup shown!")
 
 func select_option(option: String):
 	match station_type:
@@ -63,5 +74,10 @@ func select_option(option: String):
 		StationType.TOPPING:
 			CurrentDrink.topping = option
 	popup.hide()
-	# Update de HUD
-	get_tree().get_first_node_in_group("drink_hud").update_hud()
+	
+	# Update the HUD if it exists
+	var hud = get_tree().get_first_node_in_group("drink_hud")
+	if hud:
+		hud.update_hud()
+	else:
+		print("WARNING: DrinkHUD not found in group 'drink_hud'")

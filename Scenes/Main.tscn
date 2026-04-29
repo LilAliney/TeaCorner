@@ -8,8 +8,7 @@
 [ext_resource type="Script" uid="uid://cseuut31tfe3h" path="res://Scripts/shop_panel.gd" id="7_jw32o"]
 [ext_resource type="Script" uid="uid://dj5ew2va5idku" path="res://Scripts/coin_label.gd" id="7_vy5pj"]
 [ext_resource type="Script" uid="uid://bidghl3m0vx1c" path="res://Scripts/story_dialog_panel.gd" id="8_50glp"]
-[ext_resource type="Script" uid="uid://c4yh5cfqcn18o" path="res://Scripts/station.gd" id="10_bmxlf"]
-[ext_resource type="Script" uid="uid://bigdrj8u1evxv" path="res://Scripts/drink_hud.gd" id="11_4kpch"]
+[ext_resource type="Script" uid="uid://cwp0kir6g2ds5" path="res://Scenes/static_body_2d.gd" id="9_vy5pj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1gob"]
 texture = ExtResource("1_pbw6q")
@@ -352,11 +351,11 @@ b = Vector2(131.19998, -4.400017)
 a = Vector2(104.79999, 5.9999847)
 b = Vector2(104, 73.59998)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kpch"]
-size = Vector2(73.5, 67.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy5pj"]
+size = Vector2(396, 166)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmxlf"]
-size = Vector2(65, 41.5)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmxlf"]
+bg_color = Color(0.9201989, 0.4206557, 0.5898987, 1)
 
 [node name="Main" type="Node2D" unique_id=1787955461]
 position = Vector2(437, 260)
@@ -377,7 +376,7 @@ position = Vector2(484, 176)
 scale = Vector2(6, 6)
 
 [node name="Balkon" type="Sprite2D" parent="." unique_id=957321513]
-position = Vector2(412, 40.00006)
+position = Vector2(378, 38)
 scale = Vector2(5, 5)
 texture = ExtResource("2_v1gob")
 
@@ -503,137 +502,23 @@ layout_mode = 2
 [node name="PlayAgainButton" type="Button" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=1108828138]
 layout_mode = 2
 
-[node name="DrinkStation" type="Area2D" parent="CanvasLayer" unique_id=543831122]
-position = Vector2(-14, 4)
-script = ExtResource("10_bmxlf")
-station_options = Array[String](["Milk Tea", "Green Tea"])
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=963642346 node_paths=PackedStringArray("ui_node")]
+input_pickable = true
+script = ExtResource("9_vy5pj")
+ui_node = NodePath("../Panel")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrinkStation" unique_id=1260740298]
-position = Vector2(790, 245.25)
-shape = SubResource("RectangleShape2D_4kpch")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=347195489]
+position = Vector2(552, 8)
+shape = SubResource("RectangleShape2D_vy5pj")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/DrinkStation" unique_id=1809985315]
-position = Vector2(790, 256)
-disable_mode = 1
-constant_linear_velocity = Vector2(48, 48)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/DrinkStation/StaticBody2D" unique_id=1417460311]
-position = Vector2(-1, -1)
-shape = SubResource("RectangleShape2D_bmxlf")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/DrinkStation" unique_id=1189790535]
-
-[node name="StationPopup" type="Panel" parent="CanvasLayer/DrinkStation" unique_id=792595200]
-offset_left = 386.0
-offset_top = 193.0
-offset_right = 906.0
-offset_bottom = 590.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DrinkStation/StationPopup" unique_id=813169644]
-layout_mode = 0
+[node name="Panel" type="Panel" parent="." unique_id=226627496]
+visible = false
+custom_minimum_size = Vector2(700, 500)
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="TitleLabel" type="Label" parent="CanvasLayer/DrinkStation/StationPopup/VBoxContainer" unique_id=774216387]
-layout_mode = 2
-text = "Drink Station"
-
-[node name="BobaStation" type="Area2D" parent="CanvasLayer" unique_id=786416316]
-position = Vector2(-14, 23)
-script = ExtResource("10_bmxlf")
-station_options = Array[String](["Classic", "Strawberry"])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/BobaStation" unique_id=464163749]
-position = Vector2(961.75, 380.875)
-shape = SubResource("RectangleShape2D_4kpch")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/BobaStation" unique_id=970816319]
-position = Vector2(950, 376)
-disable_mode = 1
-constant_linear_velocity = Vector2(48, 48)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/BobaStation/StaticBody2D" unique_id=1137346678]
-position = Vector2(5, -56)
-shape = SubResource("RectangleShape2D_bmxlf")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/BobaStation" unique_id=1509967372]
-
-[node name="StationPopup" type="Panel" parent="CanvasLayer/BobaStation" unique_id=2114434299]
-offset_left = 386.0
-offset_top = 174.0
-offset_right = 906.0
-offset_bottom = 571.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BobaStation/StationPopup" unique_id=1578952376]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TitleLabel" type="Label" parent="CanvasLayer/BobaStation/StationPopup/VBoxContainer" unique_id=1495145425]
-layout_mode = 2
-text = "Boba Station"
-
-[node name="ToppingsStation" type="Area2D" parent="CanvasLayer" unique_id=1707775363]
-position = Vector2(217, 361)
-script = ExtResource("10_bmxlf")
-station_options = Array[String](["None", "Mochi"])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/ToppingsStation" unique_id=423579134]
-position = Vector2(155, -97.5)
-shape = SubResource("RectangleShape2D_4kpch")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer/ToppingsStation" unique_id=1226979268]
-position = Vector2(167, -83)
-disable_mode = 1
-constant_linear_velocity = Vector2(48, 48)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/ToppingsStation/StaticBody2D" unique_id=1962247895]
-position = Vector2(-12, -2.75)
-shape = SubResource("RectangleShape2D_bmxlf")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ToppingsStation" unique_id=699757723]
-
-[node name="StationPopup" type="Panel" parent="CanvasLayer/ToppingsStation" unique_id=943999246]
-offset_left = 155.0
-offset_top = -187.0
-offset_right = 675.0
-offset_bottom = 210.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ToppingsStation/StationPopup" unique_id=809522359]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 2.0
-
-[node name="TitleLabel" type="Label" parent="CanvasLayer/ToppingsStation/StationPopup/VBoxContainer" unique_id=246133063]
-layout_mode = 2
-text = "Topping Station"
-
-[node name="DrinkHUD" type="CanvasLayer" parent="CanvasLayer" unique_id=1610677072]
-script = ExtResource("11_4kpch")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/DrinkHUD" unique_id=1639636761]
-offset_left = 247.0
-offset_top = 93.0
-offset_right = 287.0
-offset_bottom = 133.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DrinkHUD/Panel" unique_id=1333429205]
-layout_mode = 0
-offset_left = 116.0
-offset_right = 156.0
-offset_bottom = 77.0
-
-[node name="TeaLabel" type="Label" parent="CanvasLayer/DrinkHUD/Panel/VBoxContainer" unique_id=1437422242]
-layout_mode = 2
-
-[node name="BobaLabel" type="Label" parent="CanvasLayer/DrinkHUD/Panel/VBoxContainer" unique_id=1208508545]
-layout_mode = 2
-
-[node name="ToppingLabel" type="Label" parent="CanvasLayer/DrinkHUD/Panel/VBoxContainer" unique_id=1477474206]
-layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bmxlf")
 
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/UnlockGreenTea" to="CanvasLayer/ShopPanel" method="_on_unlock_green_tea_pressed"]
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/SpeedUpgradeButton" to="CanvasLayer/ShopPanel" method="_on_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/CloseButton" to="CanvasLayer/ShopPanel" method="_on_close_button_pressed"]
+[connection signal="input_event" from="StaticBody2D" to="StaticBody2D" method="_on_input_event"]

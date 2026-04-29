@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://co4nrusn8cp7u"]
+[gd_scene format=3 uid="uid://co4nrusn8cp7u"]
 
 [ext_resource type="Texture2D" uid="uid://diqshmpmrxxrr" path="res://Sprites/Customer1.0.png" id="1_o7g7w"]
 [ext_resource type="Script" uid="uid://cihubk1dqyhc" path="res://Scripts/customer.gd" id="1_r206j"]
@@ -6,21 +6,22 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r206j"]
 size = Vector2(11.600003, 29.225008)
 
-[node name="Customer" type="CharacterBody2D"]
+[node name="Customer" type="CharacterBody2D" unique_id=1343848583]
 scale = Vector2(5, 5)
 script = ExtResource("1_r206j")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1767595667]
 position = Vector2(66, 54)
 texture = ExtResource("1_o7g7w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1682721577]
 position = Vector2(60.399998, 90.612495)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_r206j")
 
-[node name="OrderLabel" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="OrderLabel" type="Label" parent="." unique_id=1610251212]
+offset_left = 100.2
+offset_top = 4.2
+offset_right = 227.2
+offset_bottom = 27.2
 text = "\"🧋 Bubble Tea\""
