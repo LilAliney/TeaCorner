@@ -25,6 +25,14 @@ Economy="*res://Scripts/economy_manager.gd"
 StoryManager="*uid://dm7cnnexpylp6"
 CurrentDrink="*uid://dnrhr16re3ujd"
 
+[file_customization]
+
+folder_colors={
+"res://Scenes/": "yellow",
+"res://Scripts/": "pink",
+"res://Sprites/": "red"
+}
+
 [input]
 
 move_up={
