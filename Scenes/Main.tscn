@@ -521,6 +521,7 @@ position = Vector2(552, 8)
 shape = SubResource("RectangleShape2D_vy5pj")
 
 [node name="Panel" type="Panel" parent="." unique_id=226627496]
+visible = false
 custom_minimum_size = Vector2(700, 500)
 offset_left = -248.0
 offset_top = -332.0
