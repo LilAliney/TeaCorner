@@ -1,20 +1,16 @@
 extends StaticBody2D
-@export var ui_node: Control 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _ready():
+	input_pickable = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print("Hello World!")
-			if ui_node:
-				ui_node.visible = !ui_node.visible
+func _input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		var customer = get_tree().get_first_node_in_group("customer")
+		if customer == null:
+			return
+		
+		# Find the popup panel and show it
+		var popup = get_node("/root/Main/Panel")
+		if popup:
+			popup.show_order(customer.order)
+			popup.visible = true

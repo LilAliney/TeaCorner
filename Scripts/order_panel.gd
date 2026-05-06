@@ -6,7 +6,7 @@ var target_order: Order = null
 @onready var tea_option := $VBoxContainer/TeaOption
 @onready var boba_option := $VBoxContainer/BobaOption
 @onready var topping_option := $VBoxContainer/ToppingOption
-@onready var close_button := $VBoxContainer/CloseButton  # ADD THIS
+@onready var close_button := $CloseButton
 
 func _ready():
 	tea_option.add_item("Milk Tea")
@@ -17,9 +17,9 @@ func _ready():
 	topping_option.add_item("Mochi")
 	
 	hide()
-	close_button.pressed.connect(_on_close_button_pressed)  # ADD THIS
+	close_button.pressed.connect(_on_close_button_pressed)
 
-func _on_close_button_pressed():  # ADD THIS
+func _on_close_button_pressed():
 	visible = false
 
 func show_order(order: Order):
