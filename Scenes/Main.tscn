@@ -438,7 +438,8 @@ offset_left = 254.0
 offset_top = 53.0
 offset_right = 304.0
 offset_bottom = 76.0
-text = "\"🪙 0\""
+theme_override_colors/font_color = Color(0.44712552, 0, 0.2582304, 1)
+text = "🪙 0"
 script = ExtResource("7_vy5pj")
 
 [node name="ShopPanel" type="Panel" parent="CanvasLayer" unique_id=30874791]
@@ -522,10 +523,10 @@ shape = SubResource("RectangleShape2D_vy5pj")
 
 [node name="Panel" type="Panel" parent="." unique_id=226627496 groups=["popup"]]
 custom_minimum_size = Vector2(700, 500)
-offset_left = -262.0
-offset_top = -308.0
-offset_right = 883.19995
-offset_bottom = 510.0
+offset_left = -240.0
+offset_top = -170.0
+offset_right = 835.19995
+offset_bottom = 480.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_frkhe")
 script = ExtResource("11_frkhe")
 
@@ -566,7 +567,7 @@ popup/item_2/id = 2
 layout_mode = 2
 selected = 0
 item_count = 3
-popup/item_0/text = "Pick a Boba"
+popup/item_0/text = "Pick a Pearl"
 popup/item_0/id = 0
 popup/item_1/text = "Strawberry"
 popup/item_1/id = 1
@@ -584,13 +585,17 @@ popup/item_1/id = 1
 popup/item_2/text = "Mochi"
 popup/item_2/id = 2
 
+[node name="ServeButton" type="Button" parent="Panel/VBoxContainer" unique_id=1489636040]
+layout_mode = 2
+text = "Serve"
+
 [node name="CloseButton" type="Button" parent="Panel" unique_id=384222133]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 876.0
-offset_top = 14.0
-offset_right = 1076.0
-offset_bottom = 214.0
+offset_left = 832.0
+offset_top = 16.0
+offset_right = 998.0
+offset_bottom = 164.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_1p5hy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4kpch")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_grg3l")
@@ -599,3 +604,4 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_grg3l")
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/SpeedUpgradeButton" to="CanvasLayer/ShopPanel" method="_on_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/CloseButton" to="CanvasLayer/ShopPanel" method="_on_close_button_pressed"]
 [connection signal="input_event" from="StaticBody2D" to="StaticBody2D" method="_on_input_event"]
+[connection signal="pressed" from="Panel/VBoxContainer/ServeButton" to="Panel" method="_on_station_click"]
