@@ -58,7 +58,6 @@ func _physics_process(delta):
 		has_arrived = true
 		waiting = true
 		patience_left = patience_time
-		show_order()
 		return
 
 	# Normale beweging
@@ -71,14 +70,6 @@ func _physics_process(delta):
 func handle_waiting(delta):
 	# Geduld laten aftellen
 	patience_left -= delta
-
-	# Toon bestelling + resterend geduld
-	$OrderLabel.text = "🧋 %ds\n%s\n%s\n%s" % [
-		int(patience_left),
-		order.tea_type,
-		order.boba,
-		order.topping
-	]
 
 	# Als het geduld op is → klant vertrekt boos
 	if patience_left <= 0:
@@ -94,14 +85,6 @@ func create_order():
 	order.boba = possible_boba.pick_random()
 	order.topping = possible_toppings.pick_random()
 
-func show_order():
-	# Toon de bestelling boven het hoofd van de klant
-	$OrderLabel.visible = true
-	$OrderLabel.text = "🧋\n%s\n%s\n%s" % [
-		order.tea_type,
-		order.boba,
-		order.topping
-	]
 
 
 # VERTREKKEN

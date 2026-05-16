@@ -6,8 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r206j"]
 size = Vector2(11.600003, 29.225008)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r206j"]
-
 [node name="Customer" type="CharacterBody2D" unique_id=1343848583]
 scale = Vector2(5, 5)
 script = ExtResource("1_r206j")
@@ -20,13 +18,3 @@ texture = ExtResource("1_o7g7w")
 position = Vector2(60.399998, 90.612495)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_r206j")
-
-[node name="OrderLabel" type="Label" parent="." unique_id=1610251212]
-modulate = Color(1.7141744, 1.5366157, 1.7141744, 1)
-offset_left = 100.2
-offset_top = 4.2
-offset_right = 227.2
-offset_bottom = 27.2
-theme_override_colors/font_color = Color(0.5192469, 0.31219572, 0.3420794, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_r206j")
-text = "\"🧋 Bubble Tea\""

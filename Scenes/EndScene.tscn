@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cuckbuynvolv1"]
+
+[ext_resource type="FontFile" uid="uid://bov0mb0y6byn7" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Umbreia.ttf" id="1_fxskr"]
+[ext_resource type="Script" uid="uid://c1sr0utplhbs8" path="res://Scripts/end_screen.gd" id="1_ryui2"]
+[ext_resource type="FontFile" uid="uid://da7c8tibqmm5l" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Light.ttf" id="2_ckv4c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hv2cy"]
+bg_color = Color(1.3446387, 0.8308321, 0.86234677, 1)
+
+[node name="EndScene" type="CanvasLayer" unique_id=2144721153]
+script = ExtResource("1_ryui2")
+
+[node name="Panel" type="Panel" parent="." unique_id=1027651509]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -328.0
+offset_right = 579.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hv2cy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1772346158]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -81.5
+offset_right = 146.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer" unique_id=618514345]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("1_fxskr")
+theme_override_font_sizes/font_size = 86
+text = "The End"
+horizontal_alignment = 1
+
+[node name="CoinsLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1865090932]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("2_ckv4c")
+theme_override_font_sizes/font_size = 33
+text = "You   have   reached   your   goal !"
+horizontal_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="Panel/VBoxContainer" unique_id=1644353500]
+layout_mode = 2
+text = "Play Again"
+
+[connection signal="pressed" from="Panel/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_pressed"]

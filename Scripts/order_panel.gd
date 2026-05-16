@@ -42,7 +42,7 @@ func _on_station_click():
 	)
 	
 	if correct:
-		Economy.add_coins(5)
+		Economy.add_coins(25)
 		get_tree().get_first_node_in_group("customer").queue_free()
 		StoryManager.customer_served()
 	else:

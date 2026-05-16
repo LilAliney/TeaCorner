@@ -7,11 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://co4nrusn8cp7u" path="res://Scenes/Customer.tscn" id="4_rgh2o"]
 [ext_resource type="Script" uid="uid://cseuut31tfe3h" path="res://Scripts/shop_panel.gd" id="7_jw32o"]
 [ext_resource type="Script" uid="uid://dj5ew2va5idku" path="res://Scripts/coin_label.gd" id="7_vy5pj"]
+[ext_resource type="PackedScene" uid="uid://cuckbuynvolv1" path="res://Scenes/EndScene.tscn" id="8_1p5hy"]
+[ext_resource type="Script" uid="uid://c1sr0utplhbs8" path="res://Scripts/end_screen.gd" id="9_h1m7h"]
 [ext_resource type="Script" uid="uid://cwp0kir6g2ds5" path="res://Scenes/static_body_2d.gd" id="9_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://c86p3hd0lvl5p" path="res://Sprites/StartPopUp.png" id="10_4kpch"]
+[ext_resource type="FontFile" uid="uid://bov0mb0y6byn7" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Umbreia.ttf" id="11_1p5hy"]
 [ext_resource type="Script" uid="uid://ghnp4xuaccrv" path="res://Scripts/order_panel.gd" id="11_frkhe"]
 [ext_resource type="Texture2D" uid="uid://saurvfnpiht5" path="res://Sprites/XButton.png" id="11_grg3l"]
-[ext_resource type="Texture2D" uid="uid://c26r6ekirpjml" path="res://Sprites/ServeButton.png" id="12_frkhe"]
+[ext_resource type="FontFile" uid="uid://clgvao11w4j2b" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Basal.ttf" id="12_h1m7h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1gob"]
 texture = ExtResource("1_pbw6q")
@@ -361,13 +364,97 @@ size = Vector2(396, 166)
 texture = ExtResource("10_4kpch")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grg3l"]
-bg_color = Color(1.3749781, 0.7849676, 0.89127576, 0.83137256)
+bg_color = Color(1.375, 0.785, 0.891, 0.831)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 7.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frkhe"]
 bg_color = Color(1, 0.4509804, 0.68235296, 0.4862745)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 7.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1m7h"]
-texture = ExtResource("12_frkhe")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p5hy"]
+bg_color = Color(1.375, 0.785, 0.891, 0.831)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erwvk"]
+bg_color = Color(1.375, 0.785, 0.891, 0.831)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2w5on"]
+bg_color = Color(1, 0.4509804, 0.68235296, 0.4862745)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1m7h"]
+bg_color = Color(1.375, 0.785, 0.891, 0.831)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_346fj"]
+bg_color = Color(1.375, 0.785, 0.891, 0.831)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sclb"]
+bg_color = Color(1, 0.4509804, 0.68235296, 0.4862745)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwpts"]
+bg_color = Color(1.375, 0.785, 0.891, 0.831)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxkr1"]
+bg_color = Color(1.3749781, 0.7105519, 0.8381218, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fq0cl"]
+bg_color = Color(0.48235294, 0, 0.18039216, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyqft"]
+bg_color = Color(1, 0.4509804, 0.68235296, 0.4862745)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1p5hy"]
 texture = ExtResource("11_grg3l")
@@ -502,6 +589,9 @@ layout_mode = 2
 [node name="PlayAgainButton" type="Button" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=1108828138]
 layout_mode = 2
 
+[node name="EndScene" parent="CanvasLayer" unique_id=85742422 groups=["end_screen"] instance=ExtResource("8_1p5hy")]
+script = ExtResource("9_h1m7h")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=963642346]
 input_pickable = true
 script = ExtResource("9_vy5pj")
@@ -511,16 +601,15 @@ position = Vector2(552, 8)
 shape = SubResource("RectangleShape2D_vy5pj")
 
 [node name="Panel" type="Panel" parent="." unique_id=226627496 groups=["popup"]]
-custom_minimum_size = Vector2(400, 300)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 42.0
-offset_top = 70.0
-offset_right = 736.0
-offset_bottom = 502.0
+offset_left = -150.0
+offset_top = -36.0
+offset_right = 864.0
+offset_bottom = 644.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_frkhe")
@@ -547,18 +636,21 @@ theme_override_constants/separation = 8
 layout_direction = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.53561914, 0.1923754, 0.34000716, 1)
-theme_override_font_sizes/font_size = 50
-text = "Order"
+theme_override_fonts/font = ExtResource("11_1p5hy")
+theme_override_font_sizes/font_size = 44
+text = "Order: "
 
 [node name="TeaOption" type="OptionButton" parent="Panel/VBoxContainer" unique_id=1823178943]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 4
 size_flags_stretch_ratio = 7.47
-theme_override_colors/font_color = Color(0.4833622, 0, 0.18205014, 1)
+theme_override_colors/font_color = Color(0.48235294, 0, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("12_h1m7h")
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_grg3l")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_frkhe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1p5hy")
 selected = 0
 allow_reselect = true
 item_count = 3
@@ -575,6 +667,12 @@ popup/item_2/separator = true
 [node name="BobaOption" type="OptionButton" parent="Panel/VBoxContainer" unique_id=838397540]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("12_h1m7h")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_erwvk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2w5on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h1m7h")
 selected = 0
 allow_reselect = true
 item_count = 3
@@ -591,6 +689,12 @@ popup/item_2/separator = true
 [node name="ToppingOption" type="OptionButton" parent="Panel/VBoxContainer" unique_id=2091984130]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.48235294, 0, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("12_h1m7h")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_346fj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0sclb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hwpts")
 selected = 0
 allow_reselect = true
 item_count = 3
@@ -608,8 +712,12 @@ popup/item_2/separator = true
 custom_minimum_size = Vector2(350, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.21224016, 0.023928704, 0.043118656, 1)
-theme_override_styles/normal = SubResource("StyleBoxTexture_h1m7h")
+theme_override_colors/font_color = Color(0.48235294, 0, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("11_1p5hy")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_sxkr1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fq0cl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jyqft")
 text = "Serve"
 
 [node name="CloseButton" type="Button" parent="Panel" unique_id=384222133]
