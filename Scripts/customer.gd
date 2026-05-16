@@ -13,7 +13,7 @@ extends CharacterBody2D
 # Waar de klant naartoe wandelt
 @export var target_position := Vector2.ZERO  
 # Hoe lang de klant wacht (seconden voor nu)
-@export var patience_time := 8.0          
+@export var patience_time := 15.0          
 
 # Mogelijke keuzes voor de bestelling
 @export var possible_teas := ["Milk Tea"]

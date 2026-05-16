@@ -52,3 +52,7 @@ func _on_station_click():
 		return
 	
 	visible = false
+
+
+func _on_serve_button_pressed() -> void:
+	pass # Replace with function body.

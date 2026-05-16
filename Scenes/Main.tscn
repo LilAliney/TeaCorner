@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://co4nrusn8cp7u" path="res://Scenes/Customer.tscn" id="4_rgh2o"]
 [ext_resource type="Script" uid="uid://cseuut31tfe3h" path="res://Scripts/shop_panel.gd" id="7_jw32o"]
 [ext_resource type="Script" uid="uid://dj5ew2va5idku" path="res://Scripts/coin_label.gd" id="7_vy5pj"]
-[ext_resource type="Script" uid="uid://bidghl3m0vx1c" path="res://Scripts/story_dialog_panel.gd" id="8_50glp"]
 [ext_resource type="Script" uid="uid://cwp0kir6g2ds5" path="res://Scenes/static_body_2d.gd" id="9_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://c86p3hd0lvl5p" path="res://Sprites/StartPopUp.png" id="10_4kpch"]
 [ext_resource type="Script" uid="uid://ghnp4xuaccrv" path="res://Scripts/order_panel.gd" id="11_frkhe"]
 [ext_resource type="Texture2D" uid="uid://saurvfnpiht5" path="res://Sprites/XButton.png" id="11_grg3l"]
+[ext_resource type="Texture2D" uid="uid://c26r6ekirpjml" path="res://Sprites/ServeButton.png" id="12_frkhe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1gob"]
 texture = ExtResource("1_pbw6q")
@@ -360,6 +360,15 @@ size = Vector2(396, 166)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_frkhe"]
 texture = ExtResource("10_4kpch")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_grg3l"]
+bg_color = Color(1.3749781, 0.7849676, 0.89127576, 0.83137256)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frkhe"]
+bg_color = Color(1, 0.4509804, 0.68235296, 0.4862745)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1m7h"]
+texture = ExtResource("12_frkhe")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1p5hy"]
 texture = ExtResource("11_grg3l")
 
@@ -467,26 +476,6 @@ text = "\"Faster Service (🪙 30)\""
 layout_mode = 2
 text = "\"Close\""
 
-[node name="StoryDialogPanel" type="Panel" parent="CanvasLayer" unique_id=1783204358]
-offset_left = 235.0
-offset_top = 530.0
-offset_right = 948.0
-offset_bottom = 620.0
-script = ExtResource("8_50glp")
-
-[node name="DialogPanel" type="Panel" parent="CanvasLayer/StoryDialogPanel" unique_id=2049935569]
-layout_mode = 0
-offset_top = 29.0
-offset_right = 713.0
-offset_bottom = 85.0
-
-[node name="Label" type="Label" parent="CanvasLayer/StoryDialogPanel/DialogPanel" unique_id=2134389521]
-layout_mode = 0
-offset_left = 193.0
-offset_top = 40.0
-offset_right = 233.0
-offset_bottom = 63.0
-
 [node name="EndScreen" type="CanvasLayer" parent="CanvasLayer" unique_id=1053538259]
 
 [node name="Panel" type="Panel" parent="CanvasLayer/EndScreen" unique_id=939447427]
@@ -522,15 +511,23 @@ position = Vector2(552, 8)
 shape = SubResource("RectangleShape2D_vy5pj")
 
 [node name="Panel" type="Panel" parent="." unique_id=226627496 groups=["popup"]]
-custom_minimum_size = Vector2(700, 500)
-offset_left = -240.0
-offset_top = -170.0
-offset_right = 835.19995
-offset_bottom = 480.0
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 42.0
+offset_top = 70.0
+offset_right = 736.0
+offset_bottom = 502.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_frkhe")
 script = ExtResource("11_frkhe")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1048004614]
+custom_minimum_size = Vector2(350, 0)
 layout_direction = 2
 layout_mode = 1
 anchors_preset = 8
@@ -538,12 +535,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -343.5
-offset_top = -181.5
-offset_right = 343.5
-offset_bottom = 181.5
+offset_left = -175.0
+offset_top = -118.5
+offset_right = 175.0
+offset_bottom = 118.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 
 [node name="OrderLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1865716442]
 layout_direction = 2
@@ -553,49 +551,74 @@ theme_override_font_sizes/font_size = 50
 text = "Order"
 
 [node name="TeaOption" type="OptionButton" parent="Panel/VBoxContainer" unique_id=1823178943]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 7.47
+theme_override_colors/font_color = Color(0.4833622, 0, 0.18205014, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_grg3l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_frkhe")
 selected = 0
+allow_reselect = true
 item_count = 3
 popup/item_0/text = "Pick a Tea"
 popup/item_0/id = 0
+popup/item_0/separator = true
 popup/item_1/text = "Milk Tea"
 popup/item_1/id = 1
+popup/item_1/separator = true
 popup/item_2/text = "Green Tea"
 popup/item_2/id = 2
+popup/item_2/separator = true
 
 [node name="BobaOption" type="OptionButton" parent="Panel/VBoxContainer" unique_id=838397540]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 selected = 0
+allow_reselect = true
 item_count = 3
 popup/item_0/text = "Pick a Pearl"
 popup/item_0/id = 0
+popup/item_0/separator = true
 popup/item_1/text = "Strawberry"
 popup/item_1/id = 1
+popup/item_1/separator = true
 popup/item_2/text = "Classic"
 popup/item_2/id = 2
+popup/item_2/separator = true
 
 [node name="ToppingOption" type="OptionButton" parent="Panel/VBoxContainer" unique_id=2091984130]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 selected = 0
+allow_reselect = true
 item_count = 3
 popup/item_0/text = "Pick a Topping"
 popup/item_0/id = 0
+popup/item_0/separator = true
 popup/item_1/text = "None"
 popup/item_1/id = 1
+popup/item_1/separator = true
 popup/item_2/text = "Mochi"
 popup/item_2/id = 2
+popup/item_2/separator = true
 
 [node name="ServeButton" type="Button" parent="Panel/VBoxContainer" unique_id=1489636040]
+custom_minimum_size = Vector2(350, 40)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.21224016, 0.023928704, 0.043118656, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_h1m7h")
 text = "Serve"
 
 [node name="CloseButton" type="Button" parent="Panel" unique_id=384222133]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 832.0
-offset_top = 16.0
-offset_right = 998.0
-offset_bottom = 164.0
+offset_left = 530.0
+offset_top = 4.0
+offset_right = 652.0
+offset_bottom = 116.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_1p5hy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4kpch")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_grg3l")
@@ -604,4 +627,5 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_grg3l")
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/SpeedUpgradeButton" to="CanvasLayer/ShopPanel" method="_on_speed_upgrade_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/CloseButton" to="CanvasLayer/ShopPanel" method="_on_close_button_pressed"]
 [connection signal="input_event" from="StaticBody2D" to="StaticBody2D" method="_on_input_event"]
+[connection signal="pressed" from="Panel/VBoxContainer/ServeButton" to="Panel" method="_on_serve_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/ServeButton" to="Panel" method="_on_station_click"]
