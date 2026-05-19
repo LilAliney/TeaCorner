@@ -5,43 +5,54 @@ extends CharacterBody2D
 # - Geduld aftellen
 # - Vertrekken als het te lang duurt
 
-
-# INSTELBARE WAARDES (Inspector)
-
 # Bewegingssnelheid van de klant
-@export var speed := 80.0                 
+@export var speed := 80.0      
+		   
 # Waar de klant naartoe wandelt
 @export var target_position := Vector2.ZERO  
+
 # Hoe lang de klant wacht (seconden voor nu)
 @export var patience_time := 15.0          
 
 # Mogelijke keuzes voor de bestelling
-@export var possible_teas := ["Milk Tea"]
+@export var possible_teas := ["Milk Tea", "Green Tea"]
 @export var possible_boba := ["Classic", "Strawberry"]
 @export var possible_toppings := ["None", "Mochi"]
 
-
-# INTERNE VARIABELEN
+# Lijst van Customer sprites
+@export var customer_sprites := [
+	preload("res://Sprites/hamsterCustomer.png"),
+	preload("res://Sprites/Customer1.0.png"),
+	preload("res://Sprites/sheepCustomer.png"),
+	preload("res://Sprites/chamaleonCustomer.png")
+]
 
 # Is de klant aangekomen?
-var has_arrived := false     
+var has_arrived := false    
+ 
 # Staat de klant te wachten?
 var waiting := false         
+
 # Resterend geduld
-var patience_left := 0.0      
+var patience_left := 0.0     
+ 
 # De bestelling van deze klant
 var order: Order              
 
-# FUNCTIES
 
+# FUNCTIES
 func _ready():
 	# Zet de klant in een lijst/ groep
 	# Zo kan de player makkelijk klanten vinden
 	add_to_group("customer")
 
 	# Maak de bestelling meteen aan
-	# Zo bestaat order ALTIJD
+	# Zo bestaat order altijd
 	create_order()
+	
+	#Kiest willekeurig sprite
+	var random_sprite = customer_sprites.pick_random()
+	$Sprite2D.texture = random_sprite
 
 func _physics_process(delta):
 	# Als de klant al aangekomen is, telt het geduld af

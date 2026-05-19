@@ -3,9 +3,31 @@
 [ext_resource type="FontFile" uid="uid://bov0mb0y6byn7" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Umbreia.ttf" id="1_fxskr"]
 [ext_resource type="Script" uid="uid://c1sr0utplhbs8" path="res://Scripts/end_screen.gd" id="1_ryui2"]
 [ext_resource type="FontFile" uid="uid://da7c8tibqmm5l" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Light.ttf" id="2_ckv4c"]
+[ext_resource type="FontFile" uid="uid://clgvao11w4j2b" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Basal.ttf" id="4_hv2cy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hv2cy"]
 bg_color = Color(1.3446387, 0.8308321, 0.86234677, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nb8ct"]
+bg_color = Color(0.5506524, 0.11747212, 0.28532323, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxgjw"]
+bg_color = Color(0.664994, 0.15781027, 0.35393003, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44jhl"]
+bg_color = Color(0.41686636, 0.07792192, 0.2110315, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="EndScene" type="CanvasLayer" unique_id=2144721153]
 script = ExtResource("1_ryui2")
@@ -55,7 +77,13 @@ text = "You   have   reached   your   goal !"
 horizontal_alignment = 1
 
 [node name="PlayAgainButton" type="Button" parent="Panel/VBoxContainer" unique_id=1644353500]
+custom_minimum_size = Vector2(40, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_hv2cy")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_nb8ct")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sxgjw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_44jhl")
 text = "Play Again"
 
-[connection signal="pressed" from="Panel/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]

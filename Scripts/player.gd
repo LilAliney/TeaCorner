@@ -1,15 +1,22 @@
 extends CharacterBody2D
+# Script voor de speelbare character Coco
+# zorgt voor beweging en interactie met de klanten
 
 @export var speed := 120.0
+# Beweging snelheid van Coco in pixels per seconde
 
 func _ready():
+	# Voeg speler toe aan groep zodat andere scripts hem kunnen vinden
 	add_to_group("player")
 	print("Player collision layer: ", collision_layer)
 	print("Player collision mask: ", collision_mask)
 
 
 func _physics_process(_delta):
+	# Verwerkt beweging elke frame
 	var direction := Vector2.ZERO
+	
+	# Lees invoer van de speler
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -18,6 +25,8 @@ func _physics_process(_delta):
 		direction.y += 1
 	if Input.is_action_pressed("move_up"):
 		direction.y -= 1
+		
+	# Normaliseer richting zodat diagonale beweging niet sneller is
 	direction = direction.normalized()
 	velocity = direction * speed
 	move_and_slide()

@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://cseuut31tfe3h" path="res://Scripts/shop_panel.gd" id="7_jw32o"]
 [ext_resource type="Script" uid="uid://dj5ew2va5idku" path="res://Scripts/coin_label.gd" id="7_vy5pj"]
 [ext_resource type="PackedScene" uid="uid://cuckbuynvolv1" path="res://Scenes/EndScene.tscn" id="8_1p5hy"]
-[ext_resource type="Script" uid="uid://c1sr0utplhbs8" path="res://Scripts/end_screen.gd" id="9_h1m7h"]
 [ext_resource type="Script" uid="uid://cwp0kir6g2ds5" path="res://Scenes/static_body_2d.gd" id="9_vy5pj"]
 [ext_resource type="Texture2D" uid="uid://c86p3hd0lvl5p" path="res://Sprites/StartPopUp.png" id="10_4kpch"]
 [ext_resource type="FontFile" uid="uid://bov0mb0y6byn7" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Umbreia.ttf" id="11_1p5hy"]
@@ -473,7 +472,7 @@ tile_set = SubResource("TileSet_idj7w")
 format = 2
 
 [node name="CafePlategrond" type="Sprite2D" parent="CafeTileMap" unique_id=518391711]
-position = Vector2(1738, 660)
+position = Vector2(1738, 670)
 scale = Vector2(5, 5)
 texture = ExtResource("1_pbw6q")
 
@@ -489,7 +488,7 @@ texture = ExtResource("2_v1gob")
 [node name="StaticBody2D" type="StaticBody2D" parent="Balkon" unique_id=211831873]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Balkon/StaticBody2D" unique_id=647953526]
-position = Vector2(-16.399994, 89.99996)
+position = Vector2(-16.799995, 89.6)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_50glp")
 
@@ -515,13 +514,13 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("SegmentShape2D_4kpch")
 
 [node name="EntrancePoint" type="Marker2D" parent="." unique_id=754272863]
-position = Vector2(714, 440)
+position = Vector2(670, 508)
 
 [node name="OrderSpot" type="Marker2D" parent="." unique_id=1213136590]
 position = Vector2(262, 180)
 
 [node name="CustomerSpawner" type="Node2D" parent="." unique_id=722602631]
-position = Vector2(732, 196)
+position = Vector2(664, 508)
 script = ExtResource("3_kln2b")
 customer_scene = ExtResource("4_rgh2o")
 entrance_point = NodePath("../EntrancePoint")
@@ -563,34 +562,8 @@ text = "\"Faster Service (🪙 30)\""
 layout_mode = 2
 text = "\"Close\""
 
-[node name="EndScreen" type="CanvasLayer" parent="CanvasLayer" unique_id=1053538259]
-
-[node name="Panel" type="Panel" parent="CanvasLayer/EndScreen" unique_id=939447427]
-offset_left = 918.0
-offset_top = 53.0
-offset_right = 958.0
-offset_bottom = 93.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EndScreen/Panel" unique_id=1069023929]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 7.379
-anchor_bottom = 2.6000001
-offset_top = 40.0
-offset_right = -255.16
-offset_bottom = -2.0000076
-
-[node name="TitleLabel" type="Label" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=1132064396]
-layout_mode = 2
-
-[node name="CoinsLabel" type="Label" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=670716323]
-layout_mode = 2
-
-[node name="PlayAgainButton" type="Button" parent="CanvasLayer/EndScreen/Panel/VBoxContainer" unique_id=1108828138]
-layout_mode = 2
-
 [node name="EndScene" parent="CanvasLayer" unique_id=85742422 groups=["end_screen"] instance=ExtResource("8_1p5hy")]
-script = ExtResource("9_h1m7h")
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=963642346]
 input_pickable = true
@@ -606,10 +579,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -36.0
-offset_right = 864.0
-offset_bottom = 644.0
+offset_left = -270.0
+offset_top = -184.0
+offset_right = 988.553
+offset_bottom = 660.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_frkhe")
@@ -619,15 +592,15 @@ script = ExtResource("11_frkhe")
 custom_minimum_size = Vector2(350, 0)
 layout_direction = 2
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -118.5
-offset_right = 175.0
-offset_bottom = 118.5
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.4
+anchor_right = 0.504
+anchor_bottom = 0.4
+offset_left = -328.31073
+offset_top = -65.600006
+offset_right = 301.54156
+offset_bottom = 360.9
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
@@ -637,7 +610,7 @@ layout_direction = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.53561914, 0.1923754, 0.34000716, 1)
 theme_override_fonts/font = ExtResource("11_1p5hy")
-theme_override_font_sizes/font_size = 44
+theme_override_font_sizes/font_size = 52
 text = "Order: "
 
 [node name="TeaOption" type="OptionButton" parent="Panel/VBoxContainer" unique_id=1823178943]
@@ -647,7 +620,7 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 7.47
 theme_override_colors/font_color = Color(0.48235294, 0, 0.18039216, 1)
 theme_override_fonts/font = ExtResource("12_h1m7h")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_grg3l")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_frkhe")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1p5hy")
@@ -669,7 +642,7 @@ custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.48235294, 0, 0.18039216, 1)
 theme_override_fonts/font = ExtResource("12_h1m7h")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_erwvk")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2w5on")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h1m7h")
@@ -691,7 +664,7 @@ custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.48235294, 0, 0.18039216, 1)
 theme_override_fonts/font = ExtResource("12_h1m7h")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_346fj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0sclb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hwpts")
@@ -723,10 +696,10 @@ text = "Serve"
 [node name="CloseButton" type="Button" parent="Panel" unique_id=384222133]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
-offset_left = 530.0
-offset_top = 4.0
-offset_right = 652.0
-offset_bottom = 116.0
+offset_left = 974.0
+offset_top = 18.0
+offset_right = 1164.0
+offset_bottom = 220.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_1p5hy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4kpch")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_grg3l")
