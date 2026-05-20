@@ -14,20 +14,35 @@ func _ready():
 	# Voeg alle mogelijke thee-opties toe
 	tea_option.add_item("Milk Tea")
 	tea_option.add_item("Green Tea")
+	tea_option.add_item("Chocolate")
 	
 	# Voeg alle mogelijke boba-opties toe
 	boba_option.add_item("Classic")
 	boba_option.add_item("Strawberry")
+	boba_option.add_item("Stars")
+	
 	
 	# Voeg alle mogelijke topping-opties toe
 	topping_option.add_item("None")
 	topping_option.add_item("Mochi")
+	topping_option.add_item("Cookies")
+
+	# Maak dropdown tekst groter
+	tea_option.add_theme_font_size_override("font_size", 45)
+	boba_option.add_theme_font_size_override("font_size", 45)
+	topping_option.add_theme_font_size_override("font_size", 45)
+
+	# Maak popup menu tekst groter
+	tea_option.get_popup().add_theme_font_size_override("font_size", 35)
+	boba_option.get_popup().add_theme_font_size_override("font_size", 35)
+	topping_option.get_popup().add_theme_font_size_override("font_size", 35)
 	
 	# Verberg het panel tot dat een klant aankomt
 	hide()
 	
 	close_button.pressed.connect(_on_close_button_pressed)
-
+	
+	
 func _on_close_button_pressed():
 	# Sluit het bestelvenster zonder te serveren
 	visible = false

@@ -8,7 +8,7 @@ func _ready():
 	panel.hide()
 
 func reveal():
-	title_label.text = "🎉 Coco's droom is werkelijkheid!"
+	title_label.text = "You did it!"
 	coins_label.text = "Je verdiende 🪙 %d munten!" % Economy.coins
 	panel.show()
 	print("End screen shown!")

@@ -2,16 +2,22 @@
 
 [ext_resource type="Script" uid="uid://cpl82rlo58gng" path="res://Scripts/main_menu.gd" id="1_tt5f1"]
 [ext_resource type="Texture2D" uid="uid://c86p3hd0lvl5p" path="res://Sprites/StartPopUp.png" id="2_853f1"]
+[ext_resource type="Texture2D" uid="uid://da4otdo0o1duf" path="res://Sprites/86d2320dc91cfdf91a55a17f55c94a92.jpg" id="2_df05h"]
+[ext_resource type="FontFile" uid="uid://da7c8tibqmm5l" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Light.ttf" id="3_8saeu"]
+[ext_resource type="FontFile" uid="uid://bov0mb0y6byn7" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Umbreia.ttf" id="3_8um5k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnhvo"]
-bg_color = Color(0.9098039, 0.7058824, 0.72156864, 1)
+bg_color = Color(0.8901961, 0.5294118, 0.68235296, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df05h"]
+bg_color = Color(0.8980392, 0.5254902, 0.68235296, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt5f1"]
-bg_color = Color(0.83137256, 0.5294118, 0.5568628, 1)
+bg_color = Color(0.627451, 0.25882354, 0.40392157, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -32,18 +38,17 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghw46"]
-bg_color = Color(0.9098039, 0.7058824, 0.72156864, 1)
+bg_color = Color(0.8901961, 0.5294118, 0.68235296, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df05h"]
-bg_color = Color(0.83137256, 0.5294118, 0.5568628, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrcx7"]
+bg_color = Color(0.8901961, 0.5294118, 0.68235296, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh7cp"]
+bg_color = Color(0.6313726, 0.2627451, 0.40784314, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8saeu"]
 texture = ExtResource("2_853f1")
@@ -62,15 +67,17 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ghw46"]
-texture = ExtResource("2_853f1")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8um5k"]
+bg_color = Color(0.8662972, 0.5622769, 0.72472966, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loo7a"]
-bg_color = Color(0.9098039, 0.7058824, 0.72156864, 1)
+bg_color = Color(0.9647059, 0.7764706, 0.8745098, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xim88"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_if7li"]
 bg_color = Color(0.83137256, 0.5294118, 0.5568628, 1)
@@ -88,14 +95,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tt5f1")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2115113024]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 657.0
+texture = ExtResource("2_df05h")
+
 [node name="Background" type="ColorRect" parent="." unique_id=2045878328]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.96862745, 0.8784314, 0.8784314, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1126752958]
 layout_mode = 1
@@ -104,10 +117,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -47.5
-offset_right = 20.0
-offset_bottom = 47.5
+offset_left = -175.5
+offset_top = -184.0
+offset_right = 175.5
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
@@ -116,19 +129,24 @@ alignment = 1
 [node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=24779750]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.47843137, 0.24705882, 0.2901961, 1)
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("3_8um5k")
+theme_override_font_sizes/font_size = 61
 text = "The Tea Corner"
 horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=767253432]
 custom_minimum_size = Vector2(200, 48)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.47843137, 0.24705882, 0.2901961, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_bnhvo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_df05h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tt5f1")
 text = "▶ Play"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=1296525227]
+visible = false
 custom_minimum_size = Vector2(200, 48)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.47843137, 0.24705882, 0.2901961, 1)
@@ -139,10 +157,13 @@ text = "⚙Settings"
 [node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=246225792]
 custom_minimum_size = Vector2(200, 48)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.47843137, 0.24705882, 0.2901961, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_ghw46")
-theme_override_styles/hover = SubResource("StyleBoxFlat_df05h")
-text = "🗏 Credits"
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rrcx7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fh7cp")
+text = "Credits"
 
 [node name="SettingsPanel" type="Panel" parent="." unique_id=1355865154]
 visible = false
@@ -159,6 +180,7 @@ offset_right = 150.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 theme_override_styles/panel = SubResource("StyleBoxTexture_8saeu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel" unique_id=1231383464]
@@ -177,6 +199,7 @@ grow_vertical = 2
 
 [node name="Titlelabel" type="Label" parent="SettingsPanel/VBoxContainer" unique_id=64143028]
 layout_mode = 2
+text = "Musiek"
 
 [node name="MusicSlider" type="HSlider" parent="SettingsPanel/VBoxContainer" unique_id=1391433392]
 layout_mode = 2
@@ -191,7 +214,7 @@ text = "Close"
 
 [node name="CreditsPanel" type="Panel" parent="." unique_id=1886625804]
 visible = false
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(300, 350)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -204,7 +227,7 @@ offset_right = 150.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ghw46")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8um5k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel" unique_id=1825090353]
 custom_minimum_size = Vector2(50, 0)
@@ -226,6 +249,18 @@ layout_mode = 2
 
 [node name="CreditsLabel" type="Label" parent="CreditsPanel/VBoxContainer" unique_id=1069613207]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.45599902, 0.14003894, 0.19041765, 1)
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 21
+text = "Coco's Tea Corner
+Gemaakt door    Aline Yoshinari
+Programming:   Aline
+Art:
+Pixel assets   +   edited by Aline
+Music:
+Free royalty-free music
+Speciale   bedanking   aan:
+Vrienden, thee  en  stress"
 horizontal_alignment = 1
 
 [node name="CloseButton" type="Button" parent="CreditsPanel/VBoxContainer" unique_id=437660681]
@@ -233,6 +268,7 @@ custom_minimum_size = Vector2(200, 48)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.47843137, 0.24705882, 0.2901961, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_loo7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xim88")
 theme_override_styles/hover = SubResource("StyleBoxFlat_if7li")
 text = "Close"
 

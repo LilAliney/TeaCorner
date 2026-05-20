@@ -15,9 +15,9 @@ extends CharacterBody2D
 @export var patience_time := 15.0          
 
 # Mogelijke keuzes voor de bestelling
-@export var possible_teas := ["Milk Tea", "Green Tea"]
-@export var possible_boba := ["Classic", "Strawberry"]
-@export var possible_toppings := ["None", "Mochi"]
+@export var possible_teas := ["Milk Tea", "Green Tea","Chocolate"]
+@export var possible_boba := ["Classic", "Strawberry","Stars"]
+@export var possible_toppings := ["None", "Mochi","Cookies"]
 
 # Lijst van Customer sprites
 @export var customer_sprites := [

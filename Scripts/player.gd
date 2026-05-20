@@ -2,7 +2,7 @@ extends CharacterBody2D
 # Script voor de speelbare character Coco
 # zorgt voor beweging en interactie met de klanten
 
-@export var speed := 120.0
+@export var speed := 150.0
 # Beweging snelheid van Coco in pixels per seconde
 
 func _ready():

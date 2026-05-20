@@ -28,12 +28,12 @@ func customer_served():
 		show_dialog("Je café wordt populairder!\nKlanten willen meer variëteit.")
 	
 	# MID → FINAL: Na 8 klanten
-	elif stage == StoryStage.MID and customers_served >= 2:
+	elif stage == StoryStage.MID and customers_served >= 5:
 		stage = StoryStage.FINAL
 		show_dialog("Een speciale klant komt eraan...\nDit is jouw grote test!")
 	
 	# FINAL → END: Na 10 klanten (WON!)
-	elif stage == StoryStage.FINAL and customers_served >= 2:
+	elif stage == StoryStage.FINAL and customers_served >= 8:
 		stage = StoryStage.END
 		show_ending()
 

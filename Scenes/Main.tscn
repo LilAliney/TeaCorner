@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://jjupx85fasgb"]
 
+[ext_resource type="AudioStream" uid="uid://c171gk526r2lx" path="res://Assets/pixeltown-color-parade-main-version-41716-01-53.mp3" id="1_erwvk"]
 [ext_resource type="Texture2D" uid="uid://b8m30wrqc0kb0" path="res://Sprites/CafePlategrond.png" id="1_pbw6q"]
+[ext_resource type="Script" uid="uid://bqjl55dwyfj17" path="res://Scenes/music_player.gd" id="2_erwvk"]
 [ext_resource type="PackedScene" uid="uid://d2sqlg6xhkp07" path="res://Scenes/Player.tscn" id="2_idj7w"]
 [ext_resource type="Texture2D" uid="uid://dt7hfcgee4o61" path="res://Sprites/Balkon.png" id="2_v1gob"]
 [ext_resource type="Script" uid="uid://y6n0x4osnryt" path="res://Scripts/customer_spawner.gd" id="3_kln2b"]
@@ -14,6 +16,7 @@
 [ext_resource type="Script" uid="uid://ghnp4xuaccrv" path="res://Scripts/order_panel.gd" id="11_frkhe"]
 [ext_resource type="Texture2D" uid="uid://saurvfnpiht5" path="res://Sprites/XButton.png" id="11_grg3l"]
 [ext_resource type="FontFile" uid="uid://clgvao11w4j2b" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Basal.ttf" id="12_h1m7h"]
+[ext_resource type="FontFile" uid="uid://da7c8tibqmm5l" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Light.ttf" id="17_2w5on"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v1gob"]
 texture = ExtResource("1_pbw6q")
@@ -466,6 +469,13 @@ texture = ExtResource("11_grg3l")
 position = Vector2(437, 260)
 scale = Vector2(0.5, 0.5)
 
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1934249262]
+process_mode = 3
+stream = ExtResource("1_erwvk")
+volume_db = -20.955
+autoplay = true
+script = ExtResource("2_erwvk")
+
 [node name="CafeTileMap" type="TileMap" parent="." unique_id=1949988611]
 position = Vector2(-1360, -620)
 tile_set = SubResource("TileSet_idj7w")
@@ -574,6 +584,7 @@ position = Vector2(552, 8)
 shape = SubResource("RectangleShape2D_vy5pj")
 
 [node name="Panel" type="Panel" parent="." unique_id=226627496 groups=["popup"]]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -626,7 +637,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_frkhe")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1p5hy")
 selected = 0
 allow_reselect = true
-item_count = 3
+item_count = 4
 popup/item_0/text = "Pick a Tea"
 popup/item_0/id = 0
 popup/item_0/separator = true
@@ -636,6 +647,9 @@ popup/item_1/separator = true
 popup/item_2/text = "Green Tea"
 popup/item_2/id = 2
 popup/item_2/separator = true
+popup/item_3/text = "Chocolate"
+popup/item_3/id = 3
+popup/item_3/separator = true
 
 [node name="BobaOption" type="OptionButton" parent="Panel/VBoxContainer" unique_id=838397540]
 custom_minimum_size = Vector2(0, 32)
@@ -648,16 +662,19 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_2w5on")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h1m7h")
 selected = 0
 allow_reselect = true
-item_count = 3
+item_count = 4
 popup/item_0/text = "Pick a Pearl"
 popup/item_0/id = 0
 popup/item_0/separator = true
-popup/item_1/text = "Strawberry"
+popup/item_1/text = "Classic"
 popup/item_1/id = 1
 popup/item_1/separator = true
-popup/item_2/text = "Classic"
+popup/item_2/text = "Strawberry"
 popup/item_2/id = 2
 popup/item_2/separator = true
+popup/item_3/text = "Stars"
+popup/item_3/id = 3
+popup/item_3/separator = true
 
 [node name="ToppingOption" type="OptionButton" parent="Panel/VBoxContainer" unique_id=2091984130]
 custom_minimum_size = Vector2(0, 32)
@@ -670,7 +687,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0sclb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hwpts")
 selected = 0
 allow_reselect = true
-item_count = 3
+item_count = 4
 popup/item_0/text = "Pick a Topping"
 popup/item_0/id = 0
 popup/item_0/separator = true
@@ -680,6 +697,9 @@ popup/item_1/separator = true
 popup/item_2/text = "Mochi"
 popup/item_2/id = 2
 popup/item_2/separator = true
+popup/item_3/text = "Cookies"
+popup/item_3/id = 3
+popup/item_3/separator = true
 
 [node name="ServeButton" type="Button" parent="Panel/VBoxContainer" unique_id=1489636040]
 custom_minimum_size = Vector2(350, 40)
@@ -703,6 +723,16 @@ offset_bottom = 220.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_1p5hy")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4kpch")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_grg3l")
+
+[node name="Label" type="Label" parent="." unique_id=508303244]
+offset_left = 398.0
+offset_top = -10.0
+offset_right = 494.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0.35686275, 0.17254902, 0.22745098, 1)
+theme_override_fonts/font = ExtResource("17_2w5on")
+theme_override_font_sizes/font_size = 24
+text = "Click Here!"
 
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/UnlockGreenTea" to="CanvasLayer/ShopPanel" method="_on_unlock_green_tea_pressed"]
 [connection signal="pressed" from="CanvasLayer/ShopPanel/VBoxContainer/SpeedUpgradeButton" to="CanvasLayer/ShopPanel" method="_on_speed_upgrade_button_pressed"]
