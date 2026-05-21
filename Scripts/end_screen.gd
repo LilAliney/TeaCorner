@@ -9,7 +9,7 @@ func _ready():
 
 func reveal():
 	title_label.text = "You did it!"
-	coins_label.text = "Je verdiende 🪙 %d munten!" % Economy.coins
+	coins_label.text = "Je verdiende %d munten!" % Economy.coins
 	panel.show()
 	print("End screen shown!")
 

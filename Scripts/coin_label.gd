@@ -4,10 +4,10 @@ extends Label
 
 func _ready():
 	# Toon initieel 0 munten
-	text = "🪙 0"
+	text = "0"
 	# Luister naar veranderingen in het aantal munten
 	Economy.coins_changed.connect(update_label)
 
 func update_label(amount):
 	# Zet het label bij met het nieuwe aantal munten
-	text = "🪙 " + str(amount)
+	text = str(amount)

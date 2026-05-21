@@ -3,10 +3,11 @@
 [ext_resource type="FontFile" uid="uid://bov0mb0y6byn7" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Umbreia.ttf" id="1_fxskr"]
 [ext_resource type="Script" uid="uid://c1sr0utplhbs8" path="res://Scripts/end_screen.gd" id="1_ryui2"]
 [ext_resource type="FontFile" uid="uid://da7c8tibqmm5l" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Light.ttf" id="2_ckv4c"]
+[ext_resource type="Texture2D" uid="uid://c2j3m27e3as82" path="res://Sprites/yBbOUc.png" id="2_nb8ct"]
 [ext_resource type="FontFile" uid="uid://clgvao11w4j2b" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Basal.ttf" id="4_hv2cy"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hv2cy"]
-bg_color = Color(1.3446387, 0.8308321, 0.86234677, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sxgjw"]
+texture = ExtResource("2_nb8ct")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nb8ct"]
 bg_color = Color(0.5506524, 0.11747212, 0.28532323, 1)
@@ -33,6 +34,7 @@ corner_radius_bottom_left = 8
 script = ExtResource("1_ryui2")
 
 [node name="Panel" type="Panel" parent="." unique_id=1027651509]
+z_index = 8
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -44,7 +46,7 @@ offset_right = 579.0
 offset_bottom = 321.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hv2cy")
+theme_override_styles/panel = SubResource("StyleBoxTexture_sxgjw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1772346158]
 layout_mode = 1
@@ -53,10 +55,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -177.5
-offset_top = -81.5
-offset_right = 146.0
-offset_bottom = 104.0
+offset_left = -230.75
+offset_top = -146.5
+offset_right = 199.25
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 

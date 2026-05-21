@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://bov0mb0y6byn7" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Umbreia.ttf" id="11_1p5hy"]
 [ext_resource type="Script" uid="uid://ghnp4xuaccrv" path="res://Scripts/order_panel.gd" id="11_frkhe"]
 [ext_resource type="Texture2D" uid="uid://saurvfnpiht5" path="res://Sprites/XButton.png" id="11_grg3l"]
+[ext_resource type="Texture2D" uid="uid://c5b4j5c3430v5" path="res://Sprites/Coin.png" id="12_346fj"]
 [ext_resource type="FontFile" uid="uid://clgvao11w4j2b" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Basal.ttf" id="12_h1m7h"]
 [ext_resource type="FontFile" uid="uid://da7c8tibqmm5l" path="res://Sprites/Bagura Font Pack v1.5/Bagura Font Pack v1.5/Light.ttf" id="17_2w5on"]
 
@@ -539,12 +540,16 @@ order_spot = NodePath("../OrderSpot")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=994477211]
 
 [node name="CoinLabel" type="Label" parent="CanvasLayer" unique_id=1324084129]
-offset_left = 254.0
-offset_top = 53.0
-offset_right = 304.0
-offset_bottom = 76.0
+z_index = -1
+offset_left = 291.0
+offset_top = 51.0
+offset_right = 341.0
+offset_bottom = 91.0
+pivot_offset = Vector2(23, 12)
 theme_override_colors/font_color = Color(0.44712552, 0, 0.2582304, 1)
-text = "🪙 0"
+theme_override_fonts/font = ExtResource("17_2w5on")
+theme_override_font_sizes/font_size = 34
+text = "0"
 script = ExtResource("7_vy5pj")
 
 [node name="ShopPanel" type="Panel" parent="CanvasLayer" unique_id=30874791]
@@ -573,7 +578,16 @@ layout_mode = 2
 text = "\"Close\""
 
 [node name="EndScene" parent="CanvasLayer" unique_id=85742422 groups=["end_screen"] instance=ExtResource("8_1p5hy")]
-visible = false
+layer = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=90289490]
+z_index = -1
+anchors_preset = -1
+offset_left = 230.0
+offset_top = 38.0
+offset_right = 294.0
+offset_bottom = 102.0
+texture = ExtResource("12_346fj")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=963642346]
 input_pickable = true
@@ -584,7 +598,7 @@ position = Vector2(552, 8)
 shape = SubResource("RectangleShape2D_vy5pj")
 
 [node name="Panel" type="Panel" parent="." unique_id=226627496 groups=["popup"]]
-visible = false
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -726,9 +740,9 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_grg3l")
 
 [node name="Label" type="Label" parent="." unique_id=508303244]
 offset_left = 398.0
-offset_top = -10.0
+offset_top = -8.0
 offset_right = 494.0
-offset_bottom = 19.0
+offset_bottom = 21.0
 theme_override_colors/font_color = Color(0.35686275, 0.17254902, 0.22745098, 1)
 theme_override_fonts/font = ExtResource("17_2w5on")
 theme_override_font_sizes/font_size = 24

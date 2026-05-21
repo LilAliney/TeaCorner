@@ -50,7 +50,7 @@ func _on_close_button_pressed():
 func show_order(order: Order):
 	# Toon de bestelling van de klant in het venster
 	target_order = order
-	order_label.text = "🧋 Bestelling:\n%s\n%s\n%s" % [
+	order_label.text = "Bestelling:\n%s\n%s\n%s" % [
 		order.tea_type,
 		order.boba,
 		order.topping
